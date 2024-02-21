@@ -1,0 +1,38 @@
+Le parent a ecrire comme caractere : c
+timer : 25344
+temps minimum pour chaque caractere 25344
+temps ,maximum pour chaque caractere 25344
+Somme total 25344
+Le parent a ecrire comme caractere : a
+timer : 512
+temps minimum pour chaque caractere 512
+temps ,maximum pour chaque caractere 25344
+Somme total 25856
+Le parent a ecrire comme caractere : r
+timer : 512
+temps minimum pour chaque caractere 512
+temps ,maximum pour chaque caractere 25344
+Somme total 26368
+Le parent a ecrire comme caractere : l
+timer : 512
+temps minimum pour chaque caractere 512
+temps ,maximum pour chaque caractere 25344
+Somme total 26880
+Le parent a ecrire comme caractere : o
+timer : 256
+temps minimum pour chaque caractere 256
+temps ,maximum pour chaque caractere 25344
+Somme total 27136
+Le parent a ecrire comme caractere : s
+timer : 512
+temps minimum pour chaque caractere 256
+temps ,maximum pour chaque caractere 25344
+Somme total 27648
+
+============ RESULTS ================
+Taille du Message :       1
+Nombre de Message :      6
+Duree Minimum :   0.256	us
+Duree Maximum :   25.344	us
+Duree Total :   27.648	us
+=====================================
