@@ -1,0 +1,149 @@
+# service de la db Mysql 
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-service
+spec:
+  selector:
+    app: db
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
+
+---
+# Doployement de la db Mysql 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+      - name: mysql
+        image: my-db
+        imagePullPolicy: Never
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root_password
+        - name: MYSQL_DATABASE
+          value: init
+        - name: MYSQL_USER
+          value: app_user
+        - name: MYSQL_PASSWORD
+          value: app_password
+
+---
+# Service JoramMQ
+apiVersion: v1
+kind: Service
+metadata:
+  name: jorammq-service
+spec:
+  type: LoadBalancer  # Accès depuis l'extérieur
+  selector:
+    app: jorammq
+  ports:
+    - protocol: TCP
+      port: 1883
+      targetPort: 1883
+
+---
+# Doplyment de JoramMQ
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jorammq-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jorammq
+  template:
+    metadata:
+      labels:
+        app: jorammq
+    spec:
+      containers:
+      - name: jorammq
+        image: jmq1.18-openjdk8
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 1883
+        env:
+        - name: JORAMMQ_MQTT_HOME
+          value: /home/jorammq
+        
+---
+# service du Serveur Rest
+apiVersion: v1
+kind: Service
+metadata:
+  name: server-service
+spec:
+  selector:
+    app: server
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+  #type: LoadBalancer  # Accès depuis l'extérieur
+  
+---
+# Dopleyment du Serveur Rest
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: server
+  template:
+    metadata:
+      labels:
+        app: server
+    spec:
+      containers:
+      - name: server
+        image: my-server
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
+        env:
+        - name: DB_HOST
+          value: "db-service"  # Utilisez le nom du service de la base de données
+        - name: MQTT_BROKER_HOST
+          value: "jorammq-service"  # Utilisez le nom du service Jorammq
+
+---
+# Ojbet Ingress du Serveur Rest
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: server-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: jorammq-server.jmq.com 
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: server-service
+            port:
+              number: 80
+
+

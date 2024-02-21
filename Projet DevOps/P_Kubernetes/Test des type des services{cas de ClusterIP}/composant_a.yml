@@ -1,0 +1,79 @@
+# Service 
+apiVersion: v1   
+kind: Service
+metadata:
+  name: server
+spec:
+  selector:
+    app: composant-a
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+---
+# deployment Pods
+apiVersion: v1
+kind: Pod
+metadata:
+  name: composant-a
+spec:
+  containers:
+    - name: client # container client
+      image: my-client
+      imagePullPolicy: Never
+      env:
+        - name: PHONE_NUMBER
+          valueFrom:
+            secretKeyRef:
+              name: client-secret
+              key: phone-number
+      ports:
+        - containerPort: 8080
+    - name: server    # container server_REST
+      image: my-server
+      imagePullPolicy: Never
+      env:
+        - name: DB_HOST      
+          value: "server"  
+        - name: DB_USER
+          value: "app_user"
+        - name: DB_PASSWORD
+          value: "app_password"
+        - name: DB_DATABASE
+          value: "init"
+        - name: MQTT_BROKER_HOST
+          value: "jorammq"
+        - name: MQTT_BROKER_PORT
+          value: "1883"
+      ports:
+        - containerPort: 5000
+    - name: database   # container data_base
+      image: my-db
+      imagePullPolicy: Never
+      env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root_password
+        - name: MYSQL_DATABASE
+          value: init
+        - name: MYSQL_USER
+          value: app_user
+        - name: MYSQL_PASSWORD
+          value: app_password
+    - name: mqtt-broker           # container server_JoramMQ
+      image: jmq1.18-openjdk8
+      imagePullPolicy: Never
+      env:
+        - name: JORAMMQ_MQTT_HOME
+          value: /home/jorammq
+      ports:
+        - containerPort: 1883
+  volumes:
+    - name: client-secret
+      secret:
+        secretName: client-secret
+
+
+
+
+
+

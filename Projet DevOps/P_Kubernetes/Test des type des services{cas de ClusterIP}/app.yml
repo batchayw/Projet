@@ -1,0 +1,145 @@
+#déploiment de client et serveur_REST
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-client-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: server-client
+  template:
+    metadata:
+      labels:
+        app: server-client
+    spec:
+      containers:
+      - name: server
+        image: my-server
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
+        env:
+        - name: DB_HOST
+          value: mysql
+        - name: MYSQL_ROOT_PASSWORD
+          value: root_password
+        - name: DB_USER
+          value: app_user
+        - name: DB_PASSWORD
+          value: app_password
+        - name: DB_DATABASE
+          value: init
+        - name: MQTT_BROKER_HOST
+          value: jorammq
+      - name: client
+        image: my-client
+        imagePullPolicy: Never
+        env:
+        - name: PHONE_NUMBER
+          valueFrom:
+            secretKeyRef:
+              name: phone-number-secret
+              key: phone_number
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: server
+spec:
+  selector:
+    app: server-client
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+  type: ClusterIP
+---
+#deploiement de base de données
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: my-db
+        imagePullPolicy: Never
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root_password
+        - name: MYSQL_DATABASE
+          value: init
+        - name: MYSQL_USER
+          value: app_user
+        - name: MYSQL_PASSWORD
+          value: app_password  
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+spec:
+  selector:
+    app: mysql
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
+  type: ClusterIP
+---
+# deploiement de jorammq
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jorammq-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jorammq
+  template:
+    metadata:
+      labels:
+        app: jorammq
+    spec:
+      containers:
+      - name: jorammq
+        image: jmq1.18-openjdk8
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 1883
+        env:
+        - name: JORAMMQ_MQTT_HOME
+          value: /home/jorammq
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jorammq
+spec:
+  selector:
+    app: jorammq
+  ports:
+    - protocol: TCP
+      port: 1883
+      targetPort: 1883
+  type: ClusterIP
+---
+# pour a chaque teste données le numéro de téléphone qui serai utilisé.
+apiVersion: v1
+kind: Secret
+metadata:
+  name: phone-number-secret
+type: Opaque
+stringData:
+  phone_number: "555-1234"

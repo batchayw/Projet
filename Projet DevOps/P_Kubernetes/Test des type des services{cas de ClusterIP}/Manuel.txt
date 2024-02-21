@@ -1,0 +1,8 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                 |          Bon à savoir                 |   
+                 |_______________________________________| 
+           
+Ce test comporte deux fichiers yaml. 
+	
+	- composant_a.yml: pour la communication localhost ( communication dans le pod ).
+	- app.yml: pour la communication entre pod ( sercive ClusterIP ). 

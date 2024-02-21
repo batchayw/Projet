@@ -1,0 +1,48 @@
+version: '3'
+services:
+  web:
+    build: ./app
+    environment:
+      - DB_HOST=mysql
+      - DB_USER=app_user
+      - DB_PASSWORD=app_password
+      - DB_DATABASE=init
+      - DB_PORT=3306
+      - MQTT_BROKER_HOST=jorammq
+      - MQTT_BROKER_PORT=${MQTT_BROKER_PORT}
+      - APP_PORT=${APP_PORT} 
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+    networks:
+      - willy
+    depends_on:
+      - mysql
+      - jorammq
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: init
+      MYSQL_USER: app_user
+      MYSQL_PASSWORD: app_password
+    networks:
+      - willy
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+  
+  jorammq:
+    build: ./joram
+    expose:
+      - "${MQTT_BROKER_PORT}"
+    networks:
+      - willy
+    environment:
+      MQTT_BROKER_HOST: jorammq
+      MQTT_BROKER_PORT: ${MQTT_BROKER_PORT}
+      JORAMMQ_MQTT_HOME: /home/jorammq 
+   
+networks:
+  willy:
+    driver: bridge
+

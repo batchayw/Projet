@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<config>
+
+  <property name="Transaction" value="com.scalagent.txlog.TxLogTransaction" />
+  <property name="Transaction.BufferSize" value="4194304" />
+  <property name="Transaction.BufferTimeout" value="30000000" />
+  <property name="Transaction.UseSleep" value="true" />
+  <property name="Transaction.UseNioFileChannel" value="true" />
+  <property name="Engine" value="com.scalagent.batchengine.BatchEngine" />
+  <property name="com.scalagent.jorammq.mqtt.adapter.client.ReceiveMaximum" value="16384" />
+  <property name="com.scalagent.jorammq.mqtt.adapter.broker.ReceiveMaximum" value="16384" />
+  <property name="com.scalagent.jorammq.mqtt.adapter.qos0WindowSize" value="16777216" />
+  <property name="com.scalagent.jorammq.mqtt.adapter.replicateSubscriptions"
+    value="true" />
+  <property name="com.scalagent.jorammq.key" value="cYop16ZlE2UnAC+EkVefsfzYVkl50/BeSEDInxYCMsR/j5/0Fq+Avdgc4lJD3Dsv4VFsLrzH3Fd7ZSzBK8x/etUKSHRqwOm1UxK33WHlgAGqmTD1r90WO4iCsVEbgYYpO5Nku1H85++t0zQZJfCJ158T5SzEnX8xJikcq4yKsg0=" />
+  <property name="org.objectweb.joram.keystore" value="./conf/keystore" />
+  <property name="org.objectweb.joram.keystorepass" value="jorampass" />
+  <property name="org.objectweb.joram.keystoretype" value="JKS" />
+  <property name="com.scalagent.jorammq.mqtt.monitor.conf"
+            value="./conf/monitor.xml" />
+  <property name="com.scalagent.jorammq.warnMaxToDeliverMessageCount" value="1000" />
+  <property name="com.scalagent.jorammq.errorMaxToDeliverMessageCount" value="10000" />
+  <property name="com.scalagent.jorammq.warnMaxNotAckedSize" value="0" />
+  <property name="com.scalagent.jorammq.errorMaxNotAckedSize" value="0" />
+  <property name="com.scalagent.jorammq.warnDisconnectionTime" value="86400" />
+  <property name="com.scalagent.jorammq.errorDisconnectionTime" value="604800" />
+  <!--  Activation period in seconds, not activated if less than or equal to zero -->
+  <property name="com.scalagent.jorammq.checkClientContext.period" value="3600" />
+  <property name="com.scalagent.jorammq.mqtt.bridge.maxInflightMessageCount" value="16384" />
+  
+  <server id="0" name="S0" hostname="localhost">
+    <service class="org.objectweb.joram.mom.proxies.ConnectionManager"
+      args="root root" />
+    <service class="org.objectweb.joram.mom.proxies.tcp.TcpProxyService"
+      args="17600" />
+    <service class="fr.dyade.aaa.jndi2.server.JndiServer" args="17500" />
+    <service class="com.scalagent.jorammq.mqtt.adapter.MqttAdapter"
+      args="tcp://0.0.0.0:%MQTT_BROKER_PORT%
+            tcp://0.0.0.0:1884?prod.win=1024&amp;client.mx.inflight=128&amp;snd.buf=1024&amp;rcv.buf=1024 
+            ws://0.0.0.0:9001 " />
+  </server>
+
+</config>
