@@ -1,0 +1,1 @@
+/usr/bin/gcc -g -Wall -Werror -std=gnu11  -rdynamic CMakeFiles/memshell.dir/src/memshell.c.o  -o memshell  -Wl,-rpath,/home/carlos/Documents/Allocateur_Memoire/build libemalloc.so 

@@ -1,0 +1,72 @@
+[
+{
+  "directory": "/home/carlos/Documents/Allocateur_Memoire/build",
+  "command": "/usr/bin/gcc   -g -Wall -Werror -std=gnu11   -o CMakeFiles/memshell.dir/src/memshell.c.o   -c /home/carlos/Documents/Allocateur_Memoire/src/memshell.c",
+  "file": "/home/carlos/Documents/Allocateur_Memoire/src/memshell.c"
+},
+{
+  "directory": "/home/carlos/Documents/Allocateur_Memoire/build",
+  "command": "/usr/bin/g++   -isystem /usr/src/gtest/include -isystem /usr/src/gtest  -g -Wall -Werror -std=gnu++11   -DGTEST_HAS_PTHREAD=1 -o CMakeFiles/alloctest.dir/tests/alloctest.cc.o -c /home/carlos/Documents/Allocateur_Memoire/tests/alloctest.cc",
+  "file": "/home/carlos/Documents/Allocateur_Memoire/tests/alloctest.cc"
+},
+{
+  "directory": "/home/carlos/Documents/Allocateur_Memoire/build",
+  "command": "/usr/bin/g++   -isystem /usr/src/gtest/include -isystem /usr/src/gtest  -g -Wall -Werror -std=gnu++11   -DGTEST_HAS_PTHREAD=1 -o CMakeFiles/alloctest.dir/tests/test_mark.cc.o -c /home/carlos/Documents/Allocateur_Memoire/tests/test_mark.cc",
+  "file": "/home/carlos/Documents/Allocateur_Memoire/tests/test_mark.cc"
+},
+{
+  "directory": "/home/carlos/Documents/Allocateur_Memoire/build",
+  "command": "/usr/bin/g++   -isystem /usr/src/gtest/include -isystem /usr/src/gtest  -g -Wall -Werror -std=gnu++11   -DGTEST_HAS_PTHREAD=1 -o CMakeFiles/alloctest.dir/tests/test_generic.cc.o -c /home/carlos/Documents/Allocateur_Memoire/tests/test_generic.cc",
+  "file": "/home/carlos/Documents/Allocateur_Memoire/tests/test_generic.cc"
+},
+{
+  "directory": "/home/carlos/Documents/Allocateur_Memoire/build",
+  "command": "/usr/bin/g++   -isystem /usr/src/gtest/include -isystem /usr/src/gtest  -g -Wall -Werror -std=gnu++11   -DGTEST_HAS_PTHREAD=1 -o CMakeFiles/alloctest.dir/tests/test_buddy.cc.o -c /home/carlos/Documents/Allocateur_Memoire/tests/test_buddy.cc",
+  "file": "/home/carlos/Documents/Allocateur_Memoire/tests/test_buddy.cc"
+},
+{
+  "directory": "/home/carlos/Documents/Allocateur_Memoire/build",
+  "command": "/usr/bin/g++   -isystem /usr/src/gtest/include -isystem /usr/src/gtest  -g -Wall -Werror -std=gnu++11   -DGTEST_HAS_PTHREAD=1 -o CMakeFiles/alloctest.dir/tests/test_run_cpp.cc.o -c /home/carlos/Documents/Allocateur_Memoire/tests/test_run_cpp.cc",
+  "file": "/home/carlos/Documents/Allocateur_Memoire/tests/test_run_cpp.cc"
+},
+{
+  "directory": "/home/carlos/Documents/Allocateur_Memoire/build",
+  "command": "/usr/bin/gcc -Dmempy_EXPORTS  -g -Wall -Werror -std=gnu11 -fPIC   -o CMakeFiles/mempy.dir/tests/mempymodule.c.o   -c /home/carlos/Documents/Allocateur_Memoire/tests/mempymodule.c",
+  "file": "/home/carlos/Documents/Allocateur_Memoire/tests/mempymodule.c"
+},
+{
+  "directory": "/home/carlos/Documents/Allocateur_Memoire/build",
+  "command": "/usr/bin/gcc -Demalloc_EXPORTS  -g -Wall -Werror -std=gnu11 -fPIC   -o CMakeFiles/emalloc.dir/src/mem.c.o   -c /home/carlos/Documents/Allocateur_Memoire/src/mem.c",
+  "file": "/home/carlos/Documents/Allocateur_Memoire/src/mem.c"
+},
+{
+  "directory": "/home/carlos/Documents/Allocateur_Memoire/build",
+  "command": "/usr/bin/gcc -Demalloc_EXPORTS  -g -Wall -Werror -std=gnu11 -fPIC   -o CMakeFiles/emalloc.dir/src/mem_internals.c.o   -c /home/carlos/Documents/Allocateur_Memoire/src/mem_internals.c",
+  "file": "/home/carlos/Documents/Allocateur_Memoire/src/mem_internals.c"
+},
+{
+  "directory": "/home/carlos/Documents/Allocateur_Memoire/build",
+  "command": "/usr/bin/gcc -Demalloc_EXPORTS  -g -Wall -Werror -std=gnu11 -fPIC   -o CMakeFiles/emalloc.dir/src/mem_small.c.o   -c /home/carlos/Documents/Allocateur_Memoire/src/mem_small.c",
+  "file": "/home/carlos/Documents/Allocateur_Memoire/src/mem_small.c"
+},
+{
+  "directory": "/home/carlos/Documents/Allocateur_Memoire/build",
+  "command": "/usr/bin/gcc -Demalloc_EXPORTS  -g -Wall -Werror -std=gnu11 -fPIC   -o CMakeFiles/emalloc.dir/src/mem_medium.c.o   -c /home/carlos/Documents/Allocateur_Memoire/src/mem_medium.c",
+  "file": "/home/carlos/Documents/Allocateur_Memoire/src/mem_medium.c"
+},
+{
+  "directory": "/home/carlos/Documents/Allocateur_Memoire/build",
+  "command": "/usr/bin/gcc -Demalloc_EXPORTS  -g -Wall -Werror -std=gnu11 -fPIC   -o CMakeFiles/emalloc.dir/src/mem_large.c.o   -c /home/carlos/Documents/Allocateur_Memoire/src/mem_large.c",
+  "file": "/home/carlos/Documents/Allocateur_Memoire/src/mem_large.c"
+},
+{
+  "directory": "/home/carlos/Documents/Allocateur_Memoire/build/gtest",
+  "command": "/usr/bin/g++   -isystem /usr/src/gtest/include -isystem /usr/src/gtest  -g -Wall -Werror -std=gnu++11   -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -DGTEST_HAS_PTHREAD=1 -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /usr/src/gtest/src/gtest_main.cc",
+  "file": "/usr/src/gtest/src/gtest_main.cc"
+},
+{
+  "directory": "/home/carlos/Documents/Allocateur_Memoire/build/gtest",
+  "command": "/usr/bin/g++   -I/usr/src/gtest/include -I/usr/src/gtest  -g -Wall -Werror -std=gnu++11   -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /usr/src/gtest/src/gtest-all.cc",
+  "file": "/usr/src/gtest/src/gtest-all.cc"
+}
+]
