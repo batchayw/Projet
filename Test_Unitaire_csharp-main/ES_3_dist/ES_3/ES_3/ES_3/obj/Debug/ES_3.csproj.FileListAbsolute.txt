@@ -1,0 +1,8 @@
+C:\Users\Marco\Desktop\ExclusionAVG\25913\Lab_4_1\Lab_4_1\obj\Debug\ES_3.MainForm.resources
+C:\Users\Marco\Desktop\ExclusionAVG\25913\Lab_4_1\Lab_4_1\obj\Debug\ES_3.csproj.GenerateResource.cache
+C:\Users\Marco\Desktop\ExclusionAVG\25913\Lab_4_1\Lab_4_1\obj\Debug\ES_3.csproj.CoreCompileInputs.cache
+C:\Users\Marco\Desktop\ExclusionAVG\25913\Lab_4_1\Lab_4_1\bin\Debug\ES_3.exe
+C:\Users\Marco\Desktop\ExclusionAVG\25913\Lab_4_1\Lab_4_1\bin\Debug\ES_3.pdb
+C:\Users\Marco\Desktop\ExclusionAVG\25913\Lab_4_1\Lab_4_1\obj\Debug\ES_3.Properties.Resources.resources
+C:\Users\Marco\Desktop\ExclusionAVG\25913\Lab_4_1\Lab_4_1\obj\Debug\ES_3.exe
+C:\Users\Marco\Desktop\ExclusionAVG\25913\Lab_4_1\Lab_4_1\obj\Debug\ES_3.pdb

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES_3", "ES_3\ES_3.csproj", "{7616FA21-A59A-4DB8-8F8A-86C926F2D83D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES_3_Tests", "ES_3_Tests\ES_3_Tests.csproj", "{00C22689-A792-4512-AF98-5869764C1EF7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7616FA21-A59A-4DB8-8F8A-86C926F2D83D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7616FA21-A59A-4DB8-8F8A-86C926F2D83D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7616FA21-A59A-4DB8-8F8A-86C926F2D83D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7616FA21-A59A-4DB8-8F8A-86C926F2D83D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00C22689-A792-4512-AF98-5869764C1EF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00C22689-A792-4512-AF98-5869764C1EF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00C22689-A792-4512-AF98-5869764C1EF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00C22689-A792-4512-AF98-5869764C1EF7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BF76BC8D-5987-45EE-AAE2-5B576C56C2C0}
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = ES_3.vsmdi
+	EndGlobalSection
+EndGlobal
