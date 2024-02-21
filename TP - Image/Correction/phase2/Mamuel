@@ -1,0 +1,11 @@
+Pour tester les scripts de la phase 2 du TP, il faut:
+	- Avoir Python installer
+	- Puis installer pytest dans le dossier du projet (# pip install pytest)
+	- Puis installer PySide6 dans le dossier du projet (# pip install PySide6)
+	- Ce rassurer que tout les scripts sont dans le même dossier projet ( comme phase 2 pour mon cas)
+	- Ouivrir le terminal et ce Placer dans le dossier/repertoire du projet (# cd ~/phase2)
+	- Puis éxécuter le script python main.py (python3 main.py)
+	
+N.B: il faut verifier si les scripts 'window.py' et 'main.py' s'y trouvent avant de tester 
+
+
